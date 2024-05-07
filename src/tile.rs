@@ -179,7 +179,7 @@ impl Tile {
         self.vec_tile
             .layers
             .iter()
-            .find(|n| n.name == name)
+            .find(|n| n.name() == name)
             .map(|l| Layer { layer: l.clone() })
     }
 
