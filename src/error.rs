@@ -16,6 +16,10 @@ pub enum Error {
     #[error("Wrong layer extent")]
     WrongExtent(),
 
+    /// The layer does not exist in the tile.
+    #[error("Layer not found")]
+    LayerNotFound(),
+
     /// The tile ID is invalid.
     #[error("Invalid tile ID")]
     InvalidTid(),
