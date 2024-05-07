@@ -149,6 +149,40 @@ impl Tile {
         }
     }
 
+    /// Update a layer.
+    /// 
+    /// * `layer` The layer.
+    /// 
+    /// Returns an error if:
+    /// * the layer does not exist
+    /// * the layer extent does not match the tile extent
+    pub fn update_layer(&mut self, layer: Layer) -> Result<()> {
+        let idx = self
+            .vec_tile
+            .layers
+            .iter()
+            .position(|n| n.name == layer.layer.name)
+            .ok_or(Error::LayerNotFound())?;
+        if layer.layer.extent != Some(self.extent) {
+            return Err(Error::WrongExtent());
+        }
+        self.vec_tile.layers[idx] = layer.layer;
+        Ok(())
+    }
+
+    /// Get a layer by name.
+    /// 
+    /// * `name` Layer name.
+    /// 
+    /// Returns None if the layer does not exist.
+    pub fn get_layer(&self, name: &str) -> Option<Layer> {
+        self.vec_tile
+            .layers
+            .iter()
+            .find(|n| n.name == name)
+            .map(|l| Layer { layer: l.clone() })
+    }
+
     /// Write the tile.
     ///
     /// * `out` Writer to output the tile.
