@@ -257,6 +257,13 @@ impl Layer {
         }
     }
 
+    /// Removes a feature from the layer.
+    /// 
+    /// * `id` Feature ID.
+    pub fn remove_feature(&mut self, id: u64) {
+        self.layer.features.retain(|f| f.id != Some(id));
+    }
+
     /// Get position of a key in the layer keys.  If the key is not found, it
     /// is added as the last key.
     fn key_pos(&mut self, key: &str) -> usize {
