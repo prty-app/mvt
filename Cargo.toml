@@ -14,8 +14,8 @@ edition = "2021"
 log = "0.4"
 num-traits = "0.2"
 pointy = "0.6"
-protobuf = { path = "rust-protobuf/protobuf" }
-protobuf-codegen = { path = "rust-protobuf/protobuf-codegen", optional = true }
+protobuf = { path = "protobuf/protobuf" }
+protobuf-codegen = { path = "protobuf/protobuf-codegen", optional = true }
 thiserror = "1"
 serde = { version = "1", features = ["derive"] }
 
