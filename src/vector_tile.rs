@@ -27,7 +27,7 @@
 const _PROTOBUF_VERSION_CHECK: () = ::protobuf::VERSION_3_3_0;
 
 // @@protoc_insertion_point(message:vector_tile.Tile)
-#[derive(PartialEq,Clone,Default,Debug)]
+#[derive(PartialEq,Clone,Default,Debug,Serialize)]
 pub struct Tile {
     // message fields
     // @@protoc_insertion_point(field:vector_tile.Tile.layers)
@@ -125,7 +125,7 @@ impl ::protobuf::Message for Tile {
 /// Nested message and enums of message `Tile`
 pub mod tile {
     // @@protoc_insertion_point(message:vector_tile.Tile.Value)
-    #[derive(PartialEq,Clone,Default,Debug)]
+    #[derive(PartialEq,Clone,Default,Debug,Serialize)]
     pub struct Value {
         // message fields
         // @@protoc_insertion_point(field:vector_tile.Tile.Value.string_value)
@@ -443,7 +443,7 @@ pub mod tile {
     }
 
     // @@protoc_insertion_point(message:vector_tile.Tile.Feature)
-    #[derive(PartialEq,Clone,Default,Debug)]
+    #[derive(PartialEq,Clone,Default,Debug,Serialize)]
     pub struct Feature {
         // message fields
         // @@protoc_insertion_point(field:vector_tile.Tile.Feature.id)
@@ -611,7 +611,7 @@ pub mod tile {
     }
 
     // @@protoc_insertion_point(message:vector_tile.Tile.Layer)
-    #[derive(PartialEq,Clone,Default,Debug)]
+    #[derive(PartialEq,Clone,Default,Debug,Serialize)]
     pub struct Layer {
         // message fields
         // @@protoc_insertion_point(field:vector_tile.Tile.Layer.version)
@@ -857,7 +857,7 @@ pub mod tile {
         }
     }
 
-    #[derive(Clone,Copy,PartialEq,Eq,Debug,Hash)]
+    #[derive(Clone,Copy,PartialEq,Eq,Debug,Hash,Serialize)]
     // @@protoc_insertion_point(enum:vector_tile.Tile.GeomType)
     pub enum GeomType {
         // @@protoc_insertion_point(enum_value:vector_tile.Tile.GeomType.UNKNOWN)

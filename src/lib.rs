@@ -42,6 +42,9 @@
 //! [tile]: struct.Tile.html
 #![forbid(unsafe_code)]
 
+#[macro_use]
+pub extern crate serde;
+
 mod encoder;
 mod error;
 mod geo;

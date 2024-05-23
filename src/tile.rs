@@ -41,6 +41,7 @@ use std::io::Write;
 /// [converted]: struct.Tile.html#method.to_bytes
 /// [layers]: struct.Layer.html
 /// [written out]: struct.Tile.html#method.write_to
+#[derive(Serialize)]
 pub struct Tile {
     vec_tile: VecTile,
     extent: u32,
