@@ -2,7 +2,7 @@ use std::hash::Hash;
 use std::hash::Hasher;
 use std::sync::atomic::AtomicUsize;
 use std::sync::atomic::Ordering;
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
 
 /// Cached size field used in generated code.
 ///
@@ -10,7 +10,7 @@ use serde::Serialize;
 /// (Generated code can use `#[derive(Eq)]`).
 ///
 /// This type should rarely be used directly.
-#[derive(Debug, Default, Serialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct CachedSize {
     size: AtomicUsize,
 }

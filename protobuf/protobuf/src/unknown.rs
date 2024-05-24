@@ -6,7 +6,7 @@ use std::hash::BuildHasherDefault;
 use std::hash::Hash;
 use std::hash::Hasher;
 use std::slice;
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
 
 use crate::reflect::ReflectValueRef;
 use crate::rt;
@@ -126,7 +126,7 @@ impl<'o> UnknownValueRef<'o> {
 /// Field unknown values.
 ///
 /// See [`UnknownFields`](crate::UnknownFields) for explanations.
-#[derive(Clone, PartialEq, Eq, Debug, Default, Hash, Serialize)]
+#[derive(Clone, PartialEq, Eq, Debug, Default, Hash, Serialize, Deserialize)]
 pub(crate) struct UnknownValues {
     /// 32-bit unknowns
     pub(crate) fixed32: Vec<u32>,
@@ -221,7 +221,7 @@ impl<'o> Iterator for UnknownValuesIter<'o> {
 ///
 /// For example, in this operation: load from DB, modify, store to DB,
 /// even when working with older `.proto` file, new fields won't be lost.
-#[derive(Clone, PartialEq, Eq, Debug, Default, Serialize)]
+#[derive(Clone, PartialEq, Eq, Debug, Default, Serialize, Deserialize)]
 pub struct UnknownFields {
     /// The map.
     //

@@ -1,7 +1,7 @@
 use std::fmt;
 use std::marker::PhantomData;
 use std::mem;
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
 
 use crate::reflect::runtime_types::RuntimeTypeEnumOrUnknown;
 use crate::reflect::EnumDescriptor;
@@ -10,7 +10,7 @@ use crate::Enum;
 use crate::EnumFull;
 
 /// Protobuf enums with possibly unknown values are preserved in this struct.
-#[derive(Eq, PartialEq, Ord, PartialOrd, Copy, Clone, Serialize)]
+#[derive(Eq, PartialEq, Ord, PartialOrd, Copy, Clone, Serialize, Deserialize)]
 #[repr(transparent)]
 // This should be <E: ProtobufEnum> when it no longer prevents using const fns.
 pub struct EnumOrUnknown<E> {
